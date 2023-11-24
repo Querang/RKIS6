@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Registration Form</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Регистрация</span>
+                    <form th:action="@{/auth/process_reg}" th:method="post" th:object="${user}">
+                        <div class="input-field">
+                            <label for="username">Имя:</label>
+                            <input type="text" id="username" name="username" th:field="*{username}" required>
+                            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="red-text"></span>
+                        </div>
+                        <div class="input-field">
+                            <label for="password">Пароль:</label>
+                            <input type="password" id="password" name="password" th:field="*{password}" required>
+                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="red-text"></span>
+                        </div>
+                        <button type="submit">Зарегистрироваться</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Materialize JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+
+</body>
+</html>

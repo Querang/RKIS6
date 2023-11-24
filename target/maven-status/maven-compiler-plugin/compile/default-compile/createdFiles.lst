@@ -1,0 +1,14 @@
+ru\sfu\querang\services\ShopUserService.class
+ru\sfu\querang\models\Car.class
+ru\sfu\querang\util\UserValidator.class
+ru\sfu\querang\repositories\ShopUsersRepository.class
+ru\sfu\querang\models\ShopUser.class
+ru\sfu\querang\Application.class
+ru\sfu\querang\controllers\ErrorControllerImpl.class
+ru\sfu\querang\controllers\AuthController.class
+ru\sfu\querang\security\ShopUserDetails.class
+ru\sfu\querang\services\ShopUserDetailsService.class
+ru\sfu\querang\config\SecurityConfiguration.class
+ru\sfu\querang\repositories\CarRepository.class
+ru\sfu\querang\controllers\CarController.class
+ru\sfu\querang\services\CarService.class

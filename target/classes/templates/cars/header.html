@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<header class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/cars">В начало</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li th:if="${#authorization.expression('isAuthenticated()')}">
+                    <span th:text="${'Username: ' + #authentication.principal.username}"></span>
+                    <span th:with="firstRole=${#authentication.authorities[0].authority.substring(5)}" th:text="${'Role: ' + firstRole}" style="margin-right: 10px;"></span>
+                </li>
+                <li th:if="${#authorization.expression('isAuthenticated()')}">
+                    <form th:action="@{/logout}" method="post" id="logoutForm">
+                        <input type="submit" value="Выход" class="btn" style="margin: 10px;">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+</body>
+</html>

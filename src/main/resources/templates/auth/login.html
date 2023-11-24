@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Login Form</title>
+</head>
+<body class>
+
+<div class="container center-align">
+    <div class="row center-align">
+        <div class="col center-align">
+            <div class="card center-align">
+                <div class="card">
+                    <span class="card-title">Вход</span>
+                    <!-- Форма для входа -->
+                    <form action="/auth/process_login" method="post">
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                        <div class="input-field">
+                            <label for="username">Имя:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="input-field">
+                            <label for="password">Пароль:</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <!-- Обработка неправильного логина и пароля -->
+                        <div th:if="${param.error}" class="red-text">
+                            <p>Неверное имя или пароль. Попробуйте снова</p>
+                        </div>
+                        <!-- Кнопка для отправки формы -->
+                        <button type="submit" class="btn">Вход</button>
+                        <a href="/auth/register" class="btn">Регистрация</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Materialize JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+
+</body>
+</html>
